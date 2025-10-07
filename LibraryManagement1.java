@@ -23,14 +23,19 @@ public class LibraryManagementSystem {
                 int choice = sc.nextInt();
 
                 switch (choice) {
-                    case 1 -> librarianMenu();
-                    case 2 -> studentMenu();
-                    case 3 -> {
+                    case 1 : 
+                        librarianMenu();
+                        break;
+                    case 2 : 
+                        studentMenu(); 
+                        break;
+                    case 3 : {
                         System.out.println("Exiting... Thank you!");
                         conn.close();
                         System.exit(0);
                     }
-                    default -> System.out.println(" Invalid choice. Try again!");
+                    default :
+                        System.out.println(" Invalid choice. Try again!");
                 }
             }
         } catch (SQLException e) {
@@ -49,12 +54,16 @@ public class LibraryManagementSystem {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1 -> registerLibrarian();
-                case 2 -> {
+                case 1 :
+                    registerLibrarian();
+                    break;
+                case 2 : {
                     if (loginLibrarian()) librarianFunctions();
                 }
-                case 3 -> { return; }
-                default -> System.out.println(" Invalid choice!");
+                case 3 :
+                     return; 
+                default : 
+                    System.out.println(" Invalid choice!");
             }
         }
     }
@@ -118,20 +127,31 @@ public class LibraryManagementSystem {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1 -> addBook();
-                case 2 -> viewBooks();
-                case 3 -> editBook();
-                case 4 -> deleteBook();
-                case 5 -> viewIssuedBooks();
-                case 6 -> { return; }
-                default -> System.out.println(" Invalid choice!");
+                case 1 : 
+                    addBook();
+                    break;
+                case 2 : 
+                    viewBooks();
+                    break;
+                case 3 : 
+                    editBook();
+                    break;
+                case 4 : 
+                    deleteBook();
+                    break;
+                case 5 : 
+                    viewIssuedBooks();
+                    break;
+                case 6 :  return; 
+                default :
+                    System.out.println(" Invalid choice!");
             }
         }
     }
 
     private static void addBook() {
         try {
-            sc.nextLine(); // clear buffer
+            sc.nextLine(); 
             System.out.print("Enter Book Title: ");
             String title = sc.nextLine();
             System.out.print("Enter Author: ");
@@ -246,13 +266,17 @@ public class LibraryManagementSystem {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1 -> registerStudent();
-                case 2 -> {
+                case 1 :
+                    registerStudent();
+                    break;
+                case 2 : {
                     int studentId = loginStudent();
                     if (studentId != -1) studentFunctions(studentId);
                 }
-                case 3 -> { return; }
-                default -> System.out.println(" Invalid choice!");
+                case 3 :  
+                    return; 
+                default :
+                    System.out.println(" Invalid choice!");
             }
         }
     }
@@ -314,11 +338,19 @@ public class LibraryManagementSystem {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1 -> viewBooks();
-                case 2 -> issueBook(studentId);
-                case 3 -> returnBook(studentId);
-                case 4 -> { return; }
-                default -> System.out.println(" Invalid choice!");
+                case 1 : 
+                    viewBooks();
+                    break;
+                case 2 : 
+                    issueBook(studentId);
+                    break;
+                case 3 : 
+                    returnBook(studentId);
+                    break;
+                case 4 : 
+                    return; 
+                default :
+                    System.out.println(" Invalid choice!");
             }
         }
     }
@@ -390,3 +422,4 @@ public class LibraryManagementSystem {
         }
     }
 }
+
