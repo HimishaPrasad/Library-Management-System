@@ -1,35 +1,33 @@
-CREATE DATABASE library_db;
+CREATE DATABASE librarydb;
+USE librarydb;
 
-USE library_db;
+CREATE TABLE librarians (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(100)
+);
 
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
-    username VARCHAR(50) UNIQUE,
-    password VARCHAR(50)
-);
-
-CREATE TABLE librarian (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE,
-    password VARCHAR(50)
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(100)
 );
 
 CREATE TABLE books (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(200),
+    title VARCHAR(100),
     author VARCHAR(100),
-    quantity INT
+    available BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE issued_books (
-    issue_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT,
     book_id INT,
-    issue_date DATE,
-    return_date DATE,
+    issue_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    return_date TIMESTAMP NULL,
     FOREIGN KEY (student_id) REFERENCES students(id),
     FOREIGN KEY (book_id) REFERENCES books(id)
 );
-
-
